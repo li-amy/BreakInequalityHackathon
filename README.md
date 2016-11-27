@@ -8,6 +8,7 @@ Just Ask is a scalable web application solution that uses Google App Engine and 
 ## Code Example
 
 The web application can be found here: https://key-chalice-150719.appspot.com/
+
 An outgoing SMS using Twilio through this URL: https://key-chalice-150719.appspot.com/send_sms
 
 ## Motivation
@@ -22,7 +23,9 @@ git clone https://github.com/li-amy/BreakInequalityHackathon.git
 ## API Reference
 
 https://cloud.google.com/appengine/docs/python/apis
+
 https://cloud.google.com/sql/docs/apis
+
 https://www.twilio.com/docs/api/rest
 
 ## Tests
