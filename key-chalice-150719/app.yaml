@@ -2,11 +2,29 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+# [START handlers]
 handlers:
 - url: /
   static_files: www/index.html
   upload: www/index.html
 
-- url: /(.*)
-  static_files: www/\1
-  upload: www/(.*)
+- url: /.*
+  script: questionlog.app
+# [END handlers]
+
+# [START libraries]
+libraries:
+- name: MySQLdb
+  version: "latest"
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+# [END libraries]
+
+# [START env_variables]
+env_variables:
+  CLOUD_CONNECTION_NAME: key-chalice-150719:us-central1:myinstance
+  CLOUD_USER: root
+  CLOUD_PASSWORD: myinstance1
+# [END env_variables]
