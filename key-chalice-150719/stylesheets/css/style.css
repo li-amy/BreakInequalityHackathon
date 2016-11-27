@@ -17,10 +17,15 @@ a{
 
 body{
     font-family: Verdana; size: normal; line-height: 1.2em;
-      width: 100%; margin: 0; background: #eee
+      width: 100%; margin: 0; background: #fff
 }
 
-#page{ margin: 0px; }
+#page{ 
+	margin: 0px; 
+	background: white;
+	padding: 20px;
+	clear: both;
+}
 
 #nav{
 	width: 60%;
@@ -63,12 +68,7 @@ body{
       }
     }
 
-#content{
-	margin: 0px 0;
-	background: white;
-	padding: 20px;
-	clear: both;
-}
+
 #footer{
 	border-bottom: 1px #ccc solid;
 	margin-bottom: 10px;
@@ -150,13 +150,6 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
     display: table-cell;
     padding: 1em;
   }
-}
-
-body {
-  padding: 0 2em;
-  font-family: Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
 }
 
 h1 {
