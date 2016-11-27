@@ -10,16 +10,6 @@ handlers:
 - url: /.*
   script: questionlog.app
 
-#- url: /
-#  static_files: www/index.html
-#  upload: www/index.html
-
-#- url: /(.*)
-#  static_files: www/\1
-#  upload: www/(.*)
-
-#- url: /.*
-#  script: questionlog.app
 # [END handlers]
 
 # [START libraries]
@@ -33,8 +23,8 @@ libraries:
 # [END libraries]
 
 # [START env_variables]
-#env_variables:
-#  CLOUD_CONNECTION_NAME: key-chalice-150719:us-central1:myinstance
-#  CLOUD_USER: root
-#  CLOUD_PASSWORD: myinstance1
+env_variables:
+  CLOUDSQL_CONNECTION_NAME: 'key-chalice-150719:us-central1:myinstance'
+  CLOUDSQL_USER: root
+  CLOUDSQL_PASSWORD: 'myinstance1'
 # [END env_variables]

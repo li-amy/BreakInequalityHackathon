@@ -6,9 +6,9 @@ import webapp2
 from google.appengine.ext.webapp import template
 
 # These environment variables are configured in app.yaml.
-#CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUD_CONNECTION_NAME')
-#CLOUDSQL_USER = os.environ.get('CLOUDSQL_USER')
-#CLOUDSQL_PASSWORD = os.environ.get('CLOUDSQL_PASSWORD')
+CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUDSQL_CONNECTION_NAME')
+CLOUDSQL_USER = os.environ.get('CLOUDSQL_USER')
+CLOUDSQL_PASSWORD = os.environ.get('CLOUDSQL_PASSWORD')
 #JINJA_ENVIRONMENT = jinja2.Environment(
 #  loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 #  extensions=['jinja2.ext.autoescape'],
@@ -40,11 +40,13 @@ def connect_to_cloudsql():
 class MainPage(webapp2.RequestHandler):
   def get(self):
     """Simple request handler that shows all of the MySQL variables."""
-    #self.response.headers['Content-Type'] = 'text/plain'
-    #db = connect_to_cloudsql()
-    #cursor.execute('USE questionlog')
-    #self.response.write('testing cloudSQL')
-    #template = JINJA_ENVIRONMENT.get_template('index.html')
+    db = connect_to_cloudsql()
+    cursor = db.cursor()
+    cursor.execute('USE questionlog')
+    cursor.execute("""SELECT * FROM entries""")
+    results = cursor.fetchall()
+    for result in results:
+      self.response.write('{}\n'.format(result))
     path = os.path.join(os.path.dirname(__file__), 'index.html')
     self.response.out.write(template.render(path, {}))
 
