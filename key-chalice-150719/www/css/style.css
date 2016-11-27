@@ -1,13 +1,3 @@
-*/
-.responstable {
-  margin: 1em 0;
-  width: 100%;
-  overflow: hidden;
-  background: #FFF;
-  color: #024457;
-  border-radius: 10px;
-  border: 1px solid #167F92;
-}
 .responstable tr {
   border: 1px solid #D9E4E6;
 }
