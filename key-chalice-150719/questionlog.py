@@ -4,8 +4,8 @@ import MySQLdb
 #import jinja2
 import webapp2
 from google.appengine.ext.webapp import template
-#from twilio import twiml
-#from twilio.rest import TwilioRestClient
+from twilio import twiml
+from twilio.rest import TwilioRestClient
 
 # These environment variables are configured in app.yaml.
 CLOUDSQL_CONNECTION_NAME = os.environ.get('CLOUDSQL_CONNECTION_NAME')
@@ -52,28 +52,28 @@ class MainPage(webapp2.RequestHandler):
 #    for result in results:
 #      self.response.write('{}\n'.format(result))
 
-#class HelloTeam(webapp2.RequestHandler):
-#  def post(self):
-#    r = twiml.Response()
-#    r.say("Hello Team!")
-#    self.response.headers['Content-Type'] = 'text/xml'
-#    self.response.write(str(r))
+class HelloTeam(webapp2.RequestHandler):
+  def post(self):
+    r = twiml.Response()
+    r.say("Hello Team!")
+    self.response.headers['Content-Type'] = 'text/xml'
+    self.response.write(str(r))
 
 
-#class SendSMS(webapp2.RequestHandler):
-#  def get(self):
-#    # replace with your credentials from: https://www.twilio.com/user/account
-#      account_sid = "ACfd55b03ff3ad50bb37608b6145adff21"
-#      auth_token = "85f755c8111d0fb42aa0582d26a89005"
-#      client = TwilioRestClient(account_sid, auth_token)
-      # replace "to" and "from_" with real numbers
-#      rv = client.messages.create(to="+14168546186",
-#                                  from_="+16475601929",
-#                                  body="Hello Team!")
-#      self.response.write(str(rv))
+class SendSMS(webapp2.RequestHandler):
+  def get(self):
+    # replace with your credentials from: https://www.twilio.com/user/account
+    account_sid = "ACfd55b03ff3ad50bb37608b6145adff21"
+    auth_token = "85f755c8111d0fb42aa0582d26a89005"
+    client = TwilioRestClient(account_sid, auth_token)
+    # replace "to" and "from_" with real numbers
+    rv = client.messages.create(to="+14168546186",
+                                from_="+16475601629",
+                                body="Hello Team!")
+    self.response.write(str(rv))
 
 app = webapp2.WSGIApplication([
   ('/', MainPage),
-#  ('/twiml', HelloTeam),
-#  ('/send_sms', SendSMS)
+  ('/twiml', HelloTeam),
+  ('/send_sms', SendSMS)
 ], debug=True)
