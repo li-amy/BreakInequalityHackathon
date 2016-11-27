@@ -5,11 +5,9 @@ Project for the Break Inequality Hackathon
 
 Just Ask is a scalable web application solution that uses Google App Engine and Cloud SQL to display information on community members to community health workers. Users can also ask guided questions and receive immediate answers from an automated interactive SMS system with Twilio.
 
-## Code Example
-
 The web application can be found here: https://key-chalice-150719.appspot.com/
 
-An outgoing SMS using Twilio through this URL: https://key-chalice-150719.appspot.com/send_sms
+An outgoing SMS is sent using Twilio through this URL: https://key-chalice-150719.appspot.com/send_sms
 
 ## Motivation
 
@@ -28,9 +26,6 @@ https://cloud.google.com/sql/docs/apis
 
 https://www.twilio.com/docs/api/rest
 
-## Tests
-
-Describe and show how to run the tests with code examples.
 
 ## Contributors
 
