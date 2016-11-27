@@ -4,12 +4,16 @@ threadsafe: true
 
 # [START handlers]
 handlers:
-- url: /www
-  static_dir: www
-#  upload: www/index.html
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
 
-- url: /.*
-  script: questionlog.app
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
+
+#- url: /.*
+#  script: questionlog.app
 # [END handlers]
 
 # [START libraries]
